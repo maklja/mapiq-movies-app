@@ -4,11 +4,15 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { genreApi } from './genresApi';
 import { movieApi } from './movieApi';
 import { configurationApi } from './configurationApi';
+import genresReducer from './genresSlice';
+import moviesReducer from './movieSlice';
 
 const rootReducer = combineReducers({
 	[configurationApi.reducerPath]: configurationApi.reducer,
 	[genreApi.reducerPath]: genreApi.reducer,
 	[movieApi.reducerPath]: movieApi.reducer,
+	genres: genresReducer,
+	movies: moviesReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {

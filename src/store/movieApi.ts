@@ -5,15 +5,9 @@ import { axiosBaseQuery } from '../service';
 export const movieApi = createApi({
 	reducerPath: 'movieApis',
 	tagTypes: ['Movies'],
-	baseQuery: axiosBaseQuery(),
+	baseQuery: axiosBaseQuery<MovieDetailResponse>(),
 	keepUnusedDataFor: 60,
 	endpoints: (builder) => ({
-		getMovieDetailById: builder.query<MovieDetailResponse, number>({
-			query: (movieId) => ({
-				url: `/movie/${movieId}`,
-				method: 'get',
-			}),
-		}),
 		getUpcomingMovies: builder.query<Pageable<MovieResponse>, { page?: number } | void>({
 			providesTags: ['Movies'],
 			query: ({ page } = { page: 1 }) => ({
@@ -39,6 +33,5 @@ export const movieApi = createApi({
 	}),
 });
 
-export const { useGetMovieDetailByIdQuery, useGetUpcomingMoviesQuery, useSearchMoviesQuery } =
-	movieApi;
+export const { useGetUpcomingMoviesQuery, useSearchMoviesQuery } = movieApi;
 

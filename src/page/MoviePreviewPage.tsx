@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import { useParams } from 'react-router-dom';
 import { useGetConfigurationQuery } from '../store/configurationApi';
-import { useGetMovieDetailByIdQuery } from '../store/movieApi';
+import { useGetMovieDetailByIdQuery } from '../store/movieSlice';
 import { generateTileImageUrl } from '../utils/imageUtils';
 import { GenreChip, createMessageDialog, NotFoundMessageDialog } from '../components';
 import Box from '@mui/material/Box';
