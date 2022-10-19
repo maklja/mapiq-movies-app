@@ -5,17 +5,11 @@ import { StatusCodes } from 'http-status-codes';
 
 const { REACT_APP_API_KEY, REACT_APP_SERVER_API_VERSION, REACT_APP_SERVER_API_URL } = process.env;
 
-const API_KEY = REACT_APP_API_KEY ? REACT_APP_API_KEY : '1f54bd990f1cdfb230adb312546d765d';
-const SERVER_API_VERSION = REACT_APP_SERVER_API_VERSION ? REACT_APP_SERVER_API_VERSION : 3;
-const SERVER_API_URL = REACT_APP_SERVER_API_URL
-	? REACT_APP_SERVER_API_URL
-	: 'https://api.themoviedb.org';
-
 const apiClient = axios.create({
-	baseURL: `${SERVER_API_URL}/${SERVER_API_VERSION}/`,
+	baseURL: `${REACT_APP_SERVER_API_URL}/${REACT_APP_SERVER_API_VERSION}/`,
 	timeout: 10_000,
 	params: {
-		api_key: API_KEY,
+		api_key: REACT_APP_API_KEY,
 	},
 	headers: {
 		Accept: 'application/json',

@@ -11,6 +11,8 @@ In order to install project dependencies run command
 npm install
 ```
 
+Create configuration `.env` file on the root of the project. See `.env.example` for more details.
+
 ## Testing
 
 In order to run integration tests execute command.
@@ -32,7 +34,7 @@ By default automation tests expect that the server is running on `localhost:3001
 In order to create a docker image and run it with a container execute the following command.
 
 ```console
-docker build --tag movie-app:latest ./
+docker build --tag movie-app:latest --build-arg API_KEY=<api_key> ./
 docker run --publish 3001:3000 --detach movie-app
 ```
 

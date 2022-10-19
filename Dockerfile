@@ -2,8 +2,8 @@ FROM node:16.17.0
 
 # Set default arguments to docker
 ENV NODE_ENV=production
-ARG SERVER_API_URL
-ARG SERVER_API_VERSION
+ARG SERVER_API_URL=https://api.themoviedb.org
+ARG SERVER_API_VERSION=3
 ARG API_KEY
 
 WORKDIR /usr/src/

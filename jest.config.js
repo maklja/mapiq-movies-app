@@ -7,7 +7,7 @@ module.exports = {
 		'^.+\\.(ts|tsx)?$': 'ts-jest',
 		'^.+\\.(js|jsx)$': 'babel-jest',
 	},
-	setupFilesAfterEnv: ['./src/setupTests.ts'],
+	setupFilesAfterEnv: ['./src/setupTests.ts', 'dotenv/config'],
 	testRegex: '.*\\.test\\.tsx$',
 };
 

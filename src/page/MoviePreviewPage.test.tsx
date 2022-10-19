@@ -40,7 +40,7 @@ test('it should render movie preview with movie details', async () => {
 	});
 });
 
-test('it should render movie preview should render with an error message', async () => {
+test('it should render movie preview with an error message', async () => {
 	renderWithProviders(
 		wrapWithRouter(
 			<MoviePreviewPage />,

@@ -68,7 +68,7 @@ const movieDetailMock: MovieDetailResponse = {
 };
 
 export const handlers = [
-	rest.get('https://api.themoviedb.org/3/genre/movie/list', (_, res, ctx) => {
+	rest.get('*/genre/movie/list', (_, res, ctx) => {
 		return res(
 			ctx.status(StatusCodes.OK),
 			ctx.json({
@@ -76,7 +76,7 @@ export const handlers = [
 			}),
 		);
 	}),
-	rest.get('https://api.themoviedb.org/3/movie/upcoming', (req, res, ctx) => {
+	rest.get('*/movie/upcoming', (req, res, ctx) => {
 		const page = req.url.searchParams.get('page');
 
 		if (page === '100') {
@@ -97,7 +97,7 @@ export const handlers = [
 
 		return res(ctx.status(StatusCodes.INTERNAL_SERVER_ERROR));
 	}),
-	rest.get('https://api.themoviedb.org/3/search/movie', (req, res, ctx) => {
+	rest.get('*/search/movie', (req, res, ctx) => {
 		const query = req.url.searchParams.get('query');
 
 		if (query === 'adam') {
@@ -132,7 +132,7 @@ export const handlers = [
 			}),
 		);
 	}),
-	rest.get('https://api.themoviedb.org/3/movie/:movieId', (req, res, ctx) => {
+	rest.get('*/movie/:movieId', (req, res, ctx) => {
 		const movieId = req.params.movieId as string;
 
 		if (movieId == movieDetailMock.id.toString()) {
@@ -145,7 +145,8 @@ export const handlers = [
 
 		return res(ctx.status(StatusCodes.NOT_FOUND), ctx.json(movieDetailMock));
 	}),
-	rest.get('https://api.themoviedb.org/3/configuration', (_, res, ctx) => {
+	rest.get('*/configuration', (_, res, ctx) => {
 		return res(ctx.status(StatusCodes.OK), ctx.json(confMock));
 	}),
 ];
+
